@@ -1,0 +1,26 @@
+<template>  
+   <div class="slds-card slds-card_boundary related_list_card_border_top"> 
+      <div class="related_list_themed_border_top forceRelatedListCardHeader">          
+      </div>  
+      <div class="slds-card__header slds-grid forceRelatedListCardHeader">
+            <div class="slds-media slds-media--center slds-has-flexi-truncate">
+                <lightning-card title={strTitle} icon-name="standard:record"></lightning-card>
+            </div>
+            <div class="slds-no-flex">
+                <lightning-button class="slds-button" label="New" onclick={createInstructions}>                
+                </lightning-button>
+            </div>
+      </div>
+
+      <div class="slds-m-around_medium slds-card__body slds-grid" style="width: auto;">
+        <template id="datatable" if:true={data}>
+            <lightning-datatable data={data} 
+                                    columns={columns} 
+                                    key-field="Id"
+                                    onloadeddata={countRecords}>
+            </lightning-datatable>
+        </template>
+      </div>
+
+   </div>   
+</template>

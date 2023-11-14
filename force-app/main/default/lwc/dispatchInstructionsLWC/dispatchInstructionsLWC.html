@@ -1,0 +1,190 @@
+<!--****************************************************************************************************************************
+Description:  Service Detail Tab Converge_Submit Recordpage
+****************************************************************************************************************************
+Date         Version          Author             Summary of Changes 
+****************************************************************************************************************************
+05-jan-2020    1.0          Caue Neves           Defect 7521045 (WO Recordpage)
+*****************************************************************************************************************************-->
+
+<template>  
+    <div class="slds-card slds-card_boundary related_list_card_border_top"> 
+       <div class="related_list_themed_border_top forceRelatedListCardHeader">          
+       </div>  
+       <div class="slds-card__header slds-grid forceRelatedListCardHeader">
+             <div class="slds-media slds-media--center slds-has-flexi-truncate iconAligment">
+                <b><lightning-card title={compTitle} icon-name="action:new_note"></lightning-card></b>
+             </div>
+             <div class="slds-no-flex">
+                 <lightning-button class="slds-button" label="New" name="New" onclick={handleButtonNew}>                
+                 </lightning-button>
+             </div>
+       </div>
+    <!-- Table with Instructions rows-->
+       <div class="slds-m-around_medium slds-card__body slds-grid">
+         <template id="datatable" if:true={loaded}>
+             <lightning-datatable data={data} 
+                                  columns={columns} 
+                                  key-field="RowId"
+                                  hide-checkbox-column="true"
+                                  resize-column-disabled="true"                                                                                                               
+                                  onrowaction={handleRowAction} >
+             </lightning-datatable>
+         </template>
+       </div>
+ 
+    </div>   
+
+    <!-- Spinner -->
+    <div if:true={showLoadingSpinner}>
+        <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+    </div>  
+
+    <!-- Template to show modal window for Create or Edit Instructions -->    
+    <template if:true={bShowModal}>
+        <section role="dialog" tabindex="-1"
+                aria-labelledby="modal-heading-01"
+                aria-modal="true"
+                aria-describedby="modal-content-id-1"
+                class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+
+            <!-- modal header -->
+            <header class="slds-modal__header">
+                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" name="Cancel" onclick={closeModal}>
+                    <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse" size="small" ></lightning-icon>
+                </button>
+            
+                <h2 id="modal-heading-02" class="slds-text-heading_medium slds-hyphenate">{formAction} Instructions</h2>
+            </header>
+            
+            <!-- showing record edit form -->
+            <div if:true={isEditForm} class="modal-body scrollable slds-modal__content slds-p-around--medium">
+                <lightning-record-edit-form layout-type="Full" record-id={currentRecordId} object-api-name={objectApiName}>
+                    <lightning-messages></lightning-messages>
+                        <div class="slds-grid slds-gutters_small full cols-2 fieldLine1">
+                            <div class="slds-col slds-grid slds-has-flexi-truncate">
+                                <lightning-output-field field-name="Work_Order__c"></lightning-output-field>
+                            </div>
+                            <div class="slds-col slds-grid slds-has-flexi-truncate"></div>
+                        </div>
+                        <div class="slds-grid slds-gutters_small full cols-2 fieldLine2">
+                            <div class="slds-col slds-grid slds-has-flexi-truncate">
+                                <lightning-dual-listbox name="Audience__c"
+                                                        label="Audience"
+                                                        class="resizeFields"
+                                                        required
+                                                        source-label="Available"
+                                                        selected-label="Chosen"
+                                                        value={dataForm.Audience}
+                                                        options={optionsAudience.data.values}
+                                                        onchange={handleChangeAudience}></lightning-dual-listbox>
+                            </div>
+                            <div class="slds-col slds-grid slds-has-flexi-truncate">
+                                <lightning-combobox name="Visibility__c"
+                                                    label="Visibility"                                               
+                                                    placeholder="Select Visibility"
+                                                    options={optionsVisibility.data.values}
+                                                    onchange={handleChange} 
+                                                    value={dataForm.Visibility}
+                                                    required></lightning-combobox>
+                            </div>
+                        </div>
+                        <div class="slds-grid slds-gutters_small full cols-2 fieldLine3">
+                            <div class="slds-col slds-grid slds-has-flexi-truncate">
+                                <lightning-textarea class="resizeFields" label="Description" name="Instruction__c" value={dataForm.Instruction} onblur={handleChange} required>                                    
+                                </lightning-textarea>
+                            </div>
+                            <div class="slds-col slds-grid slds-has-flexi-truncate">
+                                <lightning-combobox name="Type_of_Instruction__c"
+                                                    label="Type of Instruction"                                                    
+                                                    placeholder="Select Type of Instruction"
+                                                    options={optionsTypeInstruction.data.values}
+                                                    value={dataForm.TypeOfInst}
+                                                    onchange={handleChange} ></lightning-combobox>
+                            </div>
+                        </div>                    
+                        <br/>
+                        <!-- Div only shown for Edit record -->
+                        <div if:false={isNewForm} class=" test-id__section slds-section slds-is-open" >
+                            <h3 class="slds-section__title slds-theme--shade primaryPaletteBorder test-id__section-header-container">
+                                <span class="test-id__section-header-title section-header-title slds-p-horizontal--small slds-truncate">
+                                    System Information
+                                </span>
+                            </h3>
+
+                            <div class="test-id__section-content slds-section__content section__content">
+                                <div class="slds-form slds-form_stacked slds-is-editing">
+                                    <div class="slds-grid slds-gutters_small full cols-2">
+                                        <div class="slds-col slds-grid slds-has-flexi-truncate">
+                                            <lightning-output-field field-name="CreatedByUserName__c"></lightning-output-field>
+                                        </div>
+                                        <div class="slds-col slds-grid slds-has-flexi-truncate">
+                                            <lightning-output-field field-name="LastModifiedById"></lightning-output-field>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>
+                        </div>        
+
+                </lightning-record-edit-form>
+                
+            </div>
+
+            <!-- modal footer start-->
+            <footer class="slds-modal__footer" if:true={isEditForm}>
+                
+                    <lightning-button class="slds-button modalButtons"
+                                        label="Cancel"
+                                        title="Cancel"
+                                        name="Cancel"
+                                        onclick={closeModal}>
+                    </lightning-button>
+
+                    <lightning-button class="slds-m-top_small modalButtons"
+                                        variant="brand"
+                                        type="submit"
+                                        name={formAction}
+                                        label="Save"
+                                        onclick={saveForm}>
+                    </lightning-button>
+                
+            </footer>
+        </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+       
+    </template>
+
+    <!-- Modal for Deletion confirm  -->
+    <template if:true={openConfirm}>
+        <div class="modal-only" style="height: 640px;">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" name="Confirm" onclick={closeModal}>
+                            <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse" size="small" ></lightning-icon>
+                        </button>                        
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Delete Instructions</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <center><h2>Are you sure you want to delete this Instructions?</h2></center>
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <lightning-button label="Cancel" 
+                                          variant="neutral" 
+                                          name="Confirm" 
+                                          onclick={closeModal} >
+                        </lightning-button>
+                         &nbsp;&nbsp;&nbsp;&nbsp;
+                        <lightning-button label="Delete" 
+                                          variant="brand" 
+                                          onclick={deleteCurrentRecord}>
+                        </lightning-button>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </div>
+        </template>   
+
+</template>

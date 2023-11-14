@@ -1,0 +1,70 @@
+<template>
+  <!--  
+  <lightning-record-form
+      record-id={getIdFromParent}
+      object-api-name={objectApiName}
+      layout-type="Full"
+      mode="view"></lightning-record-form>
+    
+
+    <lightning-record-form record-id={getIdFromParent} 
+                            object-api-name={objectApiName}  
+                            fields={fields}
+                            columns="4"                            
+                            mode="view"
+                            onsubmit={handleSubmit}
+                            class="highlights slds-clearfix slds-page-header slds-page-header_record-home fixed-position">
+    </lightning-record-form>
+
+    Ativo	         > Ativo__c
+Created By	     > CreatedById
+Gain / Loss %    > Gain_Loss__c
+Last Modified By > LastModifiedById
+Long ou Short	 > Long_ou_Short__c
+Num Contratos	 > Num_Contratos__c
+Owner	         > OwnerId
+Preco Medio	     > Preco_Medio__c
+Stock Data       > Name
+Última Operação	 > Ultima_Operacao__c
+Último Preço	 > Ultimo_Preco__c
+   --> 
+    <lightning-record-view-form record-id={getIdFromParent} 
+                                object-api-name={objectApiName}
+                                class="compHeader">
+
+            <div class="slds-grid slds-theme_default">
+                <div class="slds-col slds-size_1-of-4" style="width:25%">
+                    <lightning-output-field field-name="Ativo__c"></lightning-output-field>
+                </div>
+                <div class="slds-col slds-size_2-of-4" style="width:25%">
+                  <lightning-output-field field-name="Gain_Loss__c"></lightning-output-field>
+                </div>
+                <div class="slds-col slds-size_3-of-4" style="width:25%">
+                  <lightning-output-field field-name="Long_ou_Short__c"></lightning-output-field>
+                </div>
+                <div class="slds-col slds-size_4-of-4" style="width:25%">
+                  <div></div>
+                </div>                              
+            </div>                                
+             
+            <!-- slds-theme_default slds-theme_alert-texture UTILIZAR PARA GRIDS-->
+            <!-- slds-theme_shade UTILIZAR PARA GRIDS-->
+
+            <div class="slds-grid slds-theme_default">
+                <div class="slds-col slds-size_1-of-4" style="width:25%">
+                    <lightning-output-field field-name="Preco_Medio__c"></lightning-output-field>
+                </div>
+                <div class="slds-col slds-size_2-of-4" style="width:25%">
+                   <lightning-output-field field-name="Num_Contratos__c"></lightning-output-field>
+                </div>
+                <div class="slds-col slds-size_3-of-4" style="width:25%">
+                  <lightning-output-field field-name="Ultima_Operacao__c"></lightning-output-field>
+                </div>
+                <div class="slds-col slds-size_4-of-4" style="width:25%">
+                  <lightning-output-field field-name="Ultimo_Preco__c"></lightning-output-field>
+                </div>                              
+            </div>  
+
+</lightning-record-view-form>
+
+</template>

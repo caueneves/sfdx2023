@@ -1,0 +1,31 @@
+/****************************************************************************************************************************
+Description:  CSS files for dispatchImstructionLWC component - WO Recordpage
+****************************************************************************************************************************
+Date         Version          Author             Summary of Changes 
+****************************************************************************************************************************
+05-jan-2020    1.0          Caue Neves           Defect 7521045 (WO Recordpage)
+*****************************************************************************************************************************/
+
+.iconAligment{
+    margin-left:-15px!important;
+}
+
+.resizeFields {
+    width:95%;
+}
+
+.modalButtons {
+    display:inline-block; 
+    padding:1px!important;
+}
+
+/*Override modal container css*/
+.THIS .slds-modal__container {
+    max-width: 50rem;
+}
+
+/* Hide arrow down icon that is shown close to column labels
+.THIS .slds-has-button-menu .slds-th__action-button { 
+    display: none!important; 
+}
+*/

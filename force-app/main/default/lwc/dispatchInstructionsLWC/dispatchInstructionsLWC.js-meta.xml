@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="WO Instructions List">  
+    <apiVersion>45.0</apiVersion>  
+    <isExposed>true</isExposed>  
+    <targets>  
+        <target>lightning__RecordPage</target>  
+    </targets>  
+    <targetConfigs>  
+        <targetConfig targets="lightning__RecordPage">  
+            <property name="compTitle" type="String" label="Title" description="Enter the title for the Component"/>
+            <property name="showConsole" type="Boolean" label="Show console messages" description="Used for show the console messages. Default is FALSE (disabled). Keep FALSE when debug is not needed"/>
+        </targetConfig>  
+    </targetConfigs>  
+</LightningComponentBundle>
