@@ -5,7 +5,7 @@ public class AccountHandler {
         try {
             
             Account newAccn = new Account(Name=pAccnName);
-            insert newAccn;
+            insert newAccn; // Comment added in 09-12-2023
             
             return newAccn;
             
