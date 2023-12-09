@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Compact</fullName>
+    <fields>Ativo__c</fields>
+    <fields>Preco_Medio__c</fields>
+    <fields>Gain_Loss__c</fields>
+    <fields>Num_Contratos__c</fields>
+    <fields>Long_ou_Short__c</fields>
+    <label>New Compact</label>
+</CompactLayout>

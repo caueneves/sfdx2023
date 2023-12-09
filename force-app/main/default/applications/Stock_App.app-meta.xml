@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <label>Stock App</label>
+    <navType>Standard</navType>
+    <tabs>Stock_Data__c</tabs>
+    <tabs>Waypoint__c</tabs>
+    <tabs>Student__c</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Stock_App_UtilityBar</utilityBar>
+</CustomApplication>

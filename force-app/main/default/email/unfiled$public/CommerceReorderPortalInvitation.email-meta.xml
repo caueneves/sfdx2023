@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Convide um contato para ingressar em um Portal de novo pedido de comércio.</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Portal de novo pedido de comércio: convite</name>
+    <style>none</style>
+    <subject>Bem-vindo à {!Community_Name}</subject>
+    <textOnly>&lt;html&gt;
+            Prezado(a) {!Receiving_User.FirstName},
+            &lt;p&gt;
+            Confira este portal de novo pedido para utilizar uma maneira mais simples de fazer pedidos repetidos com {!Organization.Name}. Você pode visualizar seus pedidos anteriores, modificar quantidades, fazer novos pedidos e visualizar o status do pedido.
+            &lt;/p&gt;
+            &lt;p&gt;
+            Clique no link para acesso: &lt;a href={!Community_URL}&gt;{!Community_Name}&lt;/a&gt;
+            &lt;/p&gt;
+            Atenciosamente,&lt;br&gt;
+            {!Sending_User.Name}
+            &lt;/html&gt;</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

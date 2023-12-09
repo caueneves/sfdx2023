@@ -1,0 +1,21 @@
+https://salesforce.stackexchange.com/questions/408111/how-to-setup-a-dx-project-workflow-to-customize-production
+
+=================================================================================================
+
+HOW TO RETRIEVE ALL METADATA FROM YOUR ORG - Used Version: 7.209.6-8ba3197
+
+>>> CREATE THE MANIFEST FILE WITH ALL METADATA AVAILABLE IN YOUR CONNECTED ORG
+
+sfdx project generate manifest --from-org DevHub --name=allMetadata --output-dir manifest
+
+-------------------------------------------------------------------------------------------------
+
+RETRIEVE METADATA
+
+sfdx force:source:retrieve -x manifest/allMetadata.xml 
+
+Warning: We plan to deprecate this command in the future. Try using the "project retrieve start" command instead.
+
+
+https://docs.gitlab.com/ee/topics/git/unstage.html
+

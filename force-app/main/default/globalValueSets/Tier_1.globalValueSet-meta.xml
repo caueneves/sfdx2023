@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Symptom 1</fullName>
+        <default>true</default>
+        <label>Symptom 1</label>
+    </customValue>
+    <customValue>
+        <fullName>Symptom 2</fullName>
+        <default>false</default>
+        <label>Symptom 2</label>
+    </customValue>
+    <customValue>
+        <fullName>Symptom 3</fullName>
+        <default>false</default>
+        <label>Symptom 3</label>
+    </customValue>
+    <customValue>
+        <fullName>Symptom 4</fullName>
+        <default>false</default>
+        <label>Symptom 4</label>
+    </customValue>
+    <customValue>
+        <fullName>Symptom 5</fullName>
+        <default>false</default>
+        <label>Symptom 5</label>
+    </customValue>
+    <masterLabel>Tier 1</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

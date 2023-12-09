@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Property__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Property</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Property__c.CheckTRUE__c</field>
+            <operation>equals</operation>
+            <valueField>$Source.Soft_Deleted__c</valueField>
+        </filterItems>
+        <isOptional>true</isOptional>
+    </lookupFilter>
+    <referenceTo>Property__c</referenceTo>
+    <relationshipLabel>Favorito</relationshipLabel>
+    <relationshipName>Favorito</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>
