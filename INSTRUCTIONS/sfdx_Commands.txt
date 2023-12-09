@@ -17,5 +17,102 @@ sfdx force:source:retrieve -x manifest/allMetadata.xml
 Warning: We plan to deprecate this command in the future. Try using the "project retrieve start" command instead.
 
 
-https://docs.gitlab.com/ee/topics/git/unstage.html
+
+
+
+
+- inicializar o GIT no VS
+
+- clonar uma branch existente
+
+- fazer o push da nova branch criada para o GIT
+
+- adicionar ao stage as modificações
+
+- fazer o commit das modificações
+
+
+-----------------------------------
+
+1 - Criar um novo diretório local com o clone da branch
+  - Abrir VS code no diretório
+  - Inicializar o git no diretório
+  - Dar um Rename na branch com o nome da branch que quero trabalhar e que será clonada
+  
+  
+  
+OUTRO PROCESSO A SER SEGUIDO
+
+- Clonar a Branch do Git para uma branch minha
+- Fazer as alterações e subir minha branch
+- NÃO SEI SE TENHO QUE SUBIR MINHA BRANCH TODA, OU SOMENTE O QUE FOI ALTERADO (VER COM GUSTAVO) OU NO CONFLUENCE
+
+
+Extension: Live Preview | Github Pull Request
+
+
+Pull Request
+
+
+Verify Remote: git remote -v
+
+Stage changes: git add (. Para tudo ou nome do arquivo para adicionar ao stage)
+Creating Branches: git checkout -b
+Switch between branches: git checkout -q <BRANCH NAME>
+Rename Branch: git branch -m <NEW NAME>
+Delete Branch: git branch -d <BRANCH NAME>
+Amend Last Commit: git commit --amend
+Undo Last Commit: git update-ref -d HEAD
+Discard Changes: git clean (remove files that are not under version control)
+Rollback to Previous Commit: git update-ref  (Executar quantas vezes quer desfazer os commits. Se for rolback para 2 commits atrás, executar duas vezes)
+ - Então dar um unstage and discard changes
+ 
+Stash Changes: git stash push -m SIMPLE EDITS (want to record the last state of your workspace)
+Pop Stash - Will remove the entry from Stash (Desfaz o workspace ao estado anterior do Stash)
+Apply Changes but leaves in the stash
+
+
+git-scm.com/doc
+
+
+==============================
+https://docs.github.com/en/enterprise-server@3.10/get-started/getting-started-with-git/managing-remote-repositories
+
+https://git-scm.com/docs/git-clone
+https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-clone
+https://www.freecodecamp.org/news/git-clone-branch-how-to-clone-a-specific-branch/
+
+git clone -b <BRANCH NAME> --single-branch <REPO URL> <LOCAL FOLDER>
+
+git clone -b working --single-branch https://github.com/caueneves/sfdx2023.git D:\SFDX\FY250203
+
+git branch -m FY250203_CAUE
+
+git branch -m <NEW NAME>
+
+git clone <repo> <directory>
+
+
+
+
+git checkout -b FY250203_CAUE2 origin/working
+
+
+git add .
+git commit -m "add new file"
+git push
+git push --set-upstream origin FY250203_CAUE2 (Somente a primeira vez que usa o --set-upstream)
+
+
+1 - Clonar a Branch (somente a branch) para um novo diretório local
+2 - Renomear a Branch
+3 - 
+
+
+
+
+
+
+
+
 
