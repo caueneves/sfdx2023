@@ -14,6 +14,8 @@
     <tabs>standard-home</tabs>
     <tabs>Student__c</tabs>
     <tabs>School__c</tabs>
+    <tabs>standard-Task</tabs>
+    <tabs>CatchException__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Education_UtilityBar</utilityBar>
 </CustomApplication>
